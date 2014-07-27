@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
-using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 
-namespace NeverSurrender
+namespace NeverSurrender.InputManagement
 {
-    class NSClassTemplate
+    public abstract class NSInputDevice : GameComponent
     {
         #region CONSTRUCTOR(S)
+        public NSInputDevice(Game game, PlayerIndex owner)
+            : base(game)
+        {
+            Owner = owner;
+        }
         #endregion
 
         #region DELEGATE(S)
@@ -24,7 +26,8 @@ namespace NeverSurrender
         #region METHOD(S)
         #endregion
 
-        #region PROPERTY(IES)
+        #region PROPERTIE(S)
+        public PlayerIndex Owner { get; set; }
         #endregion
     }
 }

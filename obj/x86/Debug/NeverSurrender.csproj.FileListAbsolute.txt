@@ -3,3 +3,4 @@ F:\XNA Projects\NeverSurrender\NeverSurrender\bin\x86\Debug\NeverSurrender.pdb
 F:\XNA Projects\NeverSurrender\NeverSurrender\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 F:\XNA Projects\NeverSurrender\NeverSurrender\obj\x86\Debug\NeverSurrender.dll
 F:\XNA Projects\NeverSurrender\NeverSurrender\obj\x86\Debug\NeverSurrender.pdb
+F:\XNA Projects\NeverSurrender\NeverSurrender\obj\x86\Debug\NeverSurrender.csprojResolveAssemblyReference.cache

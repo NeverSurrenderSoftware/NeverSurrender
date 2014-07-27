@@ -92,6 +92,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputManagement\NSGamepad.cs" />
+    <Compile Include="InputManagement\NSGamepadDelegates.cs" />
+    <Compile Include="InputManagement\NSGamepadEventHandler.cs" />
+    <Compile Include="InputManagement\NSGamepadManager.cs" />
+    <Compile Include="InputManagement\NSGamepadButtons.cs" />
+    <Compile Include="InputManagement\NSGamepadManagerService.cs" />
+    <Compile Include="InputManagement\NSInputDevice.cs" />
+    <Compile Include="InputManagement\NSKeyboard.cs" />
+    <Compile Include="InputManagement\NSKeyboardDelegates.cs" />
+    <Compile Include="InputManagement\NSKeyboardEventHandler.cs" />
+    <Compile Include="InputManagement\NSKeyboardService.cs" />
+    <Compile Include="InputManagement\NSMouse.cs" />
+    <Compile Include="InputManagement\NSMouseButtons.cs" />
+    <Compile Include="InputManagement\NSMouseDelegates.cs" />
+    <Compile Include="InputManagement\NSMouseEventHandler.cs" />
+    <Compile Include="InputManagement\NSMouseService.cs" />
     <Compile Include="NSClassTemplate.cs" />
     <Compile Include="NSGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
