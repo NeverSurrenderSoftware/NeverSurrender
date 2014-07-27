@@ -92,6 +92,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EngineProfiler\NSEngineProfiler.cs" />
+    <Compile Include="EngineProfiler\NSEngineProfilerDelegates.cs" />
     <Compile Include="InputManagement\NSGamepad.cs" />
     <Compile Include="InputManagement\NSGamepadDelegates.cs" />
     <Compile Include="InputManagement\NSGamepadEventHandler.cs" />

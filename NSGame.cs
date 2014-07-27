@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+using NeverSurrender;
+using NeverSurrender.EngineProfiler;
 using NeverSurrender.InputManagement;
 
 namespace NeverSurrender
@@ -40,9 +42,13 @@ namespace NeverSurrender
             IsMouseVisible = false;
             IsFixedTimeStep = true;
 #endif
-
             // Set the default Content location
             Content.RootDirectory = "Data";
+
+            // Create the Engine Profiler component, apply any local event listeners, and 
+            // add it to the Components list.
+            engineProfiler = new NSEngineProfiler(this);
+            Components.Add(engineProfiler);
 
             // Create the Gamepad Manager, apply any local event listeners, and add it 
             // to the Components list.
@@ -84,6 +90,7 @@ namespace NeverSurrender
 #if WINDOWS || DEBUG
         NSMouse mouse;
         NSKeyboard keyboard;
+        NSEngineProfiler engineProfiler;
 #endif
         #endregion
 
