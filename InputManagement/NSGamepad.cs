@@ -94,10 +94,25 @@ namespace NeverSurrender.InputManagement
         }
         public override void Update(GameTime gameTime)
         {
-            #region GAMEPAD BUTTON STATE PROCESSING
             // Get the current gamepad state
             GetCurrentState();
 
+            #region GAMEPAD CONNECTION PROCESSING
+            if (connected != currentState.IsConnected)
+            {
+                connected = currentState.IsConnected;
+                if (null != OnConnection) OnConnection(connected);
+
+                // Reset all activity
+                for (int i = 0; i < 24; i++)
+                {
+                    currentButtons[i] = false;
+                    previousButtons[i] = false;
+                }
+            }
+            #endregion
+
+            #region GAMEPAD BUTTON STATE PROCESSING
             // Clear the button action lists and prepare them for reuse
             heldButtons.Clear();
             pressedButtons.Clear();

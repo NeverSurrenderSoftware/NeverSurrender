@@ -116,7 +116,6 @@ namespace NeverSurrender
 
 #if DEBUG
             spriteBatch.Begin();
-
             spriteBatch.End();
 #endif
             base.Draw(gameTime);
