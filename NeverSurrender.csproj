@@ -92,6 +92,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetManagement\NSAssetManager.cs" />
+    <Compile Include="AssetManagement\NSAssetManagerDelegates.cs" />
+    <Compile Include="AssetManagement\NSAssetManagerService.cs" />
     <Compile Include="EngineProfiler\NSEngineProfiler.cs" />
     <Compile Include="EngineProfiler\NSEngineProfilerDelegates.cs" />
     <Compile Include="InputManagement\NSGamepad.cs" />
@@ -114,6 +117,13 @@
     <Compile Include="NSGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NSDataTypes\NSDataTypes.csproj">
+      <Project>{3E98D5A9-B22C-4964-B14B-341AB4F39AE0}</Project>
+      <Name>NSDataTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

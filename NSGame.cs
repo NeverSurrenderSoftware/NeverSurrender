@@ -8,7 +8,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 using NeverSurrender;
 using NeverSurrender.EngineProfiler;
+using NeverSurrender.AssetManagement;
 using NeverSurrender.InputManagement;
+
+using NSDataTypes;
 
 namespace NeverSurrender
 {
@@ -23,9 +26,9 @@ namespace NeverSurrender
             deviceManager = new GraphicsDeviceManager(this)
             {
                 SynchronizeWithVerticalRetrace = false,
-                PreferredBackBufferWidth = 1920,
-                PreferredBackBufferHeight = 1080,
-                IsFullScreen = true,
+                PreferredBackBufferWidth = 1280,
+                PreferredBackBufferHeight = 0720,
+                IsFullScreen = false,
             };
 
             IsMouseVisible = true;
@@ -54,9 +57,13 @@ namespace NeverSurrender
             // to the Components list.
             gamepadManager = new NSGamepadManager(this);
             Components.Add(gamepadManager);
-
             OnGamepadButtonHeld += EscapeRoute;
             gamepadManager.RegisterEventHandler(PlayerIndex.One, OnGamepadButtonHeld);
+
+            // Create the Asset Manager, apply any local event listeners, and add it to 
+            // the Components list
+            assetManager = new NSAssetManager(this);
+            Components.Add(assetManager);
 
 #if WINDOWS || DEBUG
             // Create the Keyboard Device, apply any local event listeners, and add it to
@@ -84,6 +91,7 @@ namespace NeverSurrender
         #endregion
 
         #region FIELD(S)
+        NSAssetManager assetManager;
         NSGamepadManager gamepadManager;
         GraphicsDeviceManager deviceManager;
 
@@ -103,8 +111,11 @@ namespace NeverSurrender
         {
             base.LoadContent();
 
+            // Create the SpriteBatch
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            spriteFont = Content.Load<SpriteFont>(@"System\Fonts\normal");
+
+            // Load the asset manager data file
+            assetManager.LoadDataFile("System\\Data");
         }
         protected override void UnloadContent()
         {
@@ -114,8 +125,17 @@ namespace NeverSurrender
         {
             GraphicsDevice.Clear(Color.Black);
 
+            SpriteFont Font = assetManager.GetAsset<NSFont>("Normal Font").Font;
+
 #if DEBUG
             spriteBatch.Begin();
+
+            if (null != Font)
+                spriteBatch.DrawString(Font,
+                    "Asset Count : " + assetManager.Assets.Count.ToString(),
+                    Vector2.Zero,
+                    Color.White);
+
             spriteBatch.End();
 #endif
             base.Draw(gameTime);
